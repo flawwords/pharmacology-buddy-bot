@@ -14,7 +14,7 @@ active_quizzes = {}
 # Setup DB
 
 def create_database():
-    conn = sqlite3.connect('pharmacology.db')
+    conn = sqlite3.connect('mcq.db')
     cursor = conn.cursor()
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS mcqs (
@@ -33,7 +33,7 @@ def create_database():
 # Get random MCQ
 
 def get_random_mcq():
-    conn = sqlite3.connect('pharmacology.db')
+    conn = sqlite3.connect('mcq.db')
     cursor = conn.cursor()
     cursor.execute("SELECT * FROM mcqs ORDER BY RANDOM() LIMIT 1")
     row = cursor.fetchone()
